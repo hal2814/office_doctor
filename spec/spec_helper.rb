@@ -9,5 +9,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DB.exec("DELETE FROM patientés *;")
     DB.exec("DELETE FROM doctorés *;")
+    # DB.exec('ALTER SEQUENCE "doctorés_id_seq" RESTART WITH 1;');
   end
 end

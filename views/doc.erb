@@ -1,0 +1,21 @@
+<h1><%=@doctor.name %> | Specializing in: <%= @doctor.specialty %></h1>
+
+<% if @doctor.patients().any?() %>
+<h3>Here are the doctor's patients, dawg:</h3>
+
+  <ol>
+    <% @doctor.patients.each() do |patient| %>
+    <li>
+      <ul>
+        <li>Name: <%= patient.name %></li>
+        <li>Birthday: <%= patient.birthday %></li>
+      </ul>
+    </li>
+    <% end %>
+  </ol>
+
+  <% else %>
+  <p> No patients for this doctor</p>
+  <% end %>
+<a href="/"><button class="btn btn-dark">Home</button></a>
+<a href="/new_patient_for_<%= @doctor.id %>"><button class="btn btn-dark">Add a Patient</button></a>

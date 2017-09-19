@@ -1,0 +1,13 @@
+<h1>Doctors In:</h1>
+
+<% if @doctors.any? %>
+  <ul>
+    <% @doctors.each do |doctor| %>
+    <li><a href="doctors/<%= doctor.id %>"><%= doctor.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p> The doctor ain't in today folks! </p>
+<% end %>
+
+<a href="/new_doctor"><button class="btn btn-dark">Add a new doctor</button></a>
