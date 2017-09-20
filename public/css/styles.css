@@ -1,0 +1,33 @@
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+
+/*&:before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  font-size: .75em;
+}*/
+/*li.box:before { content: "❑"; }
+li.hand:before { content: "☞"; }
+li.star:before { content: "✭"; }
+li.triangle:before { content: "►"; }
+li.dot:before { content: "◉";}
+li.quote:before { content: "»"; font-size: 1.2em; }
+li.arrow:before { content: "→"; }*/
+li.rocket:before { content: "🚀 "; }
+li.sun:before { content: "☀️ "; }
+li.sparkles:before { content: "✨ "; }
+li.smiley:before { content: "😀 "; }

@@ -5,6 +5,8 @@ require('./lib/patient')
 also_reload('lib/**/*.rb')
 require("pg")
 
+# Uncomment for testing integration_spec...maybe....
+# DB = PG.connect({:dbname => "doctors_office_test"})
 DB = PG.connect({:dbname => "doctors_office"})
 
 get('/') do
