@@ -23,6 +23,18 @@ get('/doctors/:id') do
   erb(:doc)
 end
 
+get('/doctors/:id/edit') do
+  @doctor= Doctor.find(params["id"].to_i)
+  erb(:doctor_edit)
+end
+
+patch("/doctors/:id") do
+  name = params.fetch("name")
+  specialty = params.fetch("specialty")
+  @doctor = Doctor.find(params.fetch("id").to_i())
+  @doctor.update({:name => name,:specialty => specialty})
+  erb(:doc)
+end
 
 post('/new_doctor') do
   dr_phil = Doctor.new({:name => params["name"], :specialty => params["specialty"], :id => nil})

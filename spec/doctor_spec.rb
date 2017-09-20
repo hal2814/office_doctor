@@ -51,4 +51,26 @@ RSpec.describe(Doctor) do
       expect(doctor1.name).to(eq("Clarence"))
     end
   end
+
+  describe("#delete") do
+    it("lets you delete a doctor from the database") do
+      doctor = Doctor.new({:name => "Smarg",:specialty => "huffing", :id => nil})
+      doctor.save()
+      doctor2 = Doctor.new({:name => "Huffbord",:specialty => "smarging", :id => nil})
+      doctor2.save()
+      doctor.delete()
+      expect(Doctor.all()).to(eq([doctor2]))
+    end
+
+    it("deletes a doctor's patients from the database") do
+      doctor = Doctor.new({:name => "Smarg",:specialty => "huffing", :id => nil})
+      doctor.save()
+      patient = Patient.new({:name => "Guy Man",:birthday => "1940-03-10", :doctor_id => doctor.id()})
+      patient.save()
+      patient2 = Patient.new({:name => "Steve Jenkins",:birthday => "1980-04-10", :doctor_id => doctor.id()})
+      patient2.save()
+      doctor.delete()
+      expect(Patient.all()).to(eq([]))
+    end
+  end
 end

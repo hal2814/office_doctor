@@ -19,3 +19,4 @@
   <% end %>
 <a href="/"><button class="btn btn-dark">Home</button></a>
 <a href="/new_patient_for_<%= @doctor.id %>"><button class="btn btn-dark">Add a Patient</button></a>
+<p><a href= "/doctors/<%= @doctor.id()%>/edit">Edit Dr.<%= @doctor.name() %></a></p>

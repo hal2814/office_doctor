@@ -40,6 +40,11 @@ class Doctor
     DB.exec("UPDATE doctorés SET (name, specialty) = ('#{@name}', '#{@specialty}') WHERE id = #{@id};")
   end
 
+  def delete
+    DB.exec("DELETE FROM doctorés WHERE id = #{self.id()};")
+    DB.exec("DELETE FROM patientés WHERE doctor_id = #{self.id()};")
+  end
+
   def patients
     doctor_patients = []
     patients = DB.exec("SELECT * FROM patientés WHERE doctor_id = #{self.id};")
