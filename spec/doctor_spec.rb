@@ -42,4 +42,13 @@ RSpec.describe(Doctor) do
       expect(dr_house.patients).to eq([walter])
     end
   end
+
+  describe("#update") do
+    it("update doctors") do
+      doctor1= Doctor.new({:name=>"Miguel", :speicalty=> "orthopedics", :id=> nil})
+      doctor1.save()
+      doctor1.update({:name=>"Clarence", :specialty=>"M.D"})
+      expect(doctor1.name).to(eq("Clarence"))
+    end
+  end
 end

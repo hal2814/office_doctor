@@ -33,6 +33,13 @@ class Doctor
     self.name.==(another_doctor.name) and self.specialty.==(another_doctor.specialty) and self.id.==(another_doctor.id)
   end
 
+  def update(attributes)
+    @name= attributes.fetch(:name)
+    @specialty= attributes.fetch(:specialty)
+    @id= self.id()
+    DB.exec("UPDATE doctorés SET (name, specialty) = ('#{@name}', '#{@specialty}') WHERE id = #{@id};")
+  end
+
   def patients
     doctor_patients = []
     patients = DB.exec("SELECT * FROM patientés WHERE doctor_id = #{self.id};")

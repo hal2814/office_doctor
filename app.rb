@@ -23,6 +23,7 @@ get('/doctors/:id') do
   erb(:doc)
 end
 
+
 post('/new_doctor') do
   dr_phil = Doctor.new({:name => params["name"], :specialty => params["specialty"], :id => nil})
   dr_phil.save
