@@ -36,6 +36,13 @@ patch("/doctors/:id") do
   erb(:doc)
 end
 
+delete("/doctors/:id") do
+  @doctor = Doctor.find(params.fetch("id").to_i())
+  @doctor.delete()
+  @doctors = Doctor.all()
+  erb(:index)
+end
+
 post('/new_doctor') do
   dr_phil = Doctor.new({:name => params["name"], :specialty => params["specialty"], :id => nil})
   dr_phil.save
